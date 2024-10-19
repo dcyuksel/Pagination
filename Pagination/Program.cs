@@ -15,7 +15,7 @@ builder.Services.AddDbContext<PaginationDbContext>(options =>
     options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 });
 
-builder.Services.AddScoped<IPeopleRepository, PeopleRepository>();
+builder.Services.AddScoped<ILogRepository, LogRepository>();
 
 var app = builder.Build();
 
@@ -28,12 +28,12 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 
-app.MapGet("/people/pageNumber/{pageNumber}/pageSize/{pageSize}/order/{order}",
-    async (IPeopleRepository peopleRepository, int pageNumber = 1, int pageSize = 10, string order = "desc") =>
+app.MapGet("/logs/pageNumber/{pageNumber}/pageSize/{pageSize}/order/{order}",
+    async (ILogRepository logsRepository, int pageNumber = 1, int pageSize = 10, string order = "desc") =>
 {
-    return await peopleRepository.GetPeopleAsync(pageNumber, pageSize, order);
+    return await logsRepository.GetLogsAsync(pageNumber, pageSize, order);
 })
-.WithName("GetPeople")
+.WithName("GetLogs")
 .WithOpenApi();
 
 app.Run();

@@ -1,41 +1,43 @@
 ﻿CREATE DATABASE Pagination;
 
-CREATE TABLE People (
-    [Id] INT IDENTITY(1,1) PRIMARY KEY,
-    [Name] VARCHAR(255),
-    [Age] INT
+CREATE TABLE Logs (
+    [Id]              BIGINT IDENTITY(1,1) NOT NULL, 
+    [UserName]        NVARCHAR(200)        NULL,  
+    [Severity]        NVARCHAR(128)        NULL,  
+    [Message]         NVARCHAR(max)        NULL,  
+    [TimeStamp]       DATETIME2(7)         NOT NULL, 
 );
 
-INSERT INTO People ([Name], [Age]) VALUES ('Patty',   19);
-INSERT INTO People ([Name], [Age]) VALUES ('Lois' ,   24);
-INSERT INTO People ([Name], [Age]) VALUES ('Alice',   33);
-INSERT INTO People ([Name], [Age]) VALUES ('Bob',     41);
-INSERT INTO People ([Name], [Age]) VALUES ('Dustin',  35);
-INSERT INTO People ([Name], [Age]) VALUES ('Dixie',   36);
-INSERT INTO People ([Name], [Age]) VALUES ('Peg',     27);
-INSERT INTO People ([Name], [Age]) VALUES ('Allie',   58);
-INSERT INTO People ([Name], [Age]) VALUES ('Liz',     19);
-INSERT INTO People ([Name], [Age]) VALUES ('Ray',     40);
-INSERT INTO People ([Name], [Age]) VALUES ('Rita',    51);
-INSERT INTO People ([Name], [Age]) VALUES ('Isabel',  62);
-INSERT INTO People ([Name], [Age]) VALUES ('Ruby',    33);
-INSERT INTO People ([Name], [Age]) VALUES ('Willie',  24);
-INSERT INTO People ([Name], [Age]) VALUES ('Anne',    45);
-INSERT INTO People ([Name], [Age]) VALUES ('Ben',     16);
-INSERT INTO People ([Name], [Age]) VALUES ('Barry',   57);
-INSERT INTO People ([Name], [Age]) VALUES ('Manny',   68);
-INSERT INTO People ([Name], [Age]) VALUES ('Loco',    79);
-INSERT INTO People ([Name], [Age]) VALUES ('Tex',     70);
-INSERT INTO People ([Name], [Age]) VALUES ('Reeve',   51);
-INSERT INTO People ([Name], [Age]) VALUES ('Hugh',    62);
-INSERT INTO People ([Name], [Age]) VALUES ('Theresa', 63);
-INSERT INTO People ([Name], [Age]) VALUES ('Dave',    44);
-INSERT INTO People ([Name], [Age]) VALUES ('Louis',   55);
-INSERT INTO People ([Name], [Age]) VALUES ('May',     36);
-INSERT INTO People ([Name], [Age]) VALUES ('Jannie',  27);
-INSERT INTO People ([Name], [Age]) VALUES ('Carol',   28);
-INSERT INTO People ([Name], [Age]) VALUES ('Emily',   29);
-INSERT INTO People ([Name], [Age]) VALUES ('Emma',    30);
-INSERT INTO People ([Name], [Age]) VALUES ('Adrian',  31);
-INSERT INTO People ([Name], [Age]) VALUES ('Adams',   32);
-INSERT INTO People ([Name], [Age]) VALUES ('Nalty',   33);
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Patty'  , 'Error'      , 'Message', '2025-01-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Lois'   , 'Error'      , 'Message', '2025-01-02');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Alice'  , 'Information', 'Message', '2025-01-03');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Bob'    , 'Information', 'Message', '2025-02-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Dustin' , 'Information', 'Message', '2025-02-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Dixie'  , 'Information', 'Message', '2025-02-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Peg'    , 'Information', 'Message', '2025-03-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Allie'  , 'Information', 'Message', '2025-04-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Liz'    , 'Error'      , 'Message', '2025-05-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Ray'    , 'Error'      , 'Message', '2025-03-12');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Rita'   , 'Error'      , 'Message', '2025-01-23');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Isabel' , 'Error'      , 'Message', '2025-02-22');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Ruby'   , 'Error'      , 'Message', '2025-01-21');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Willie' , 'Error'      , 'Message', '2025-03-12');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Anne'   , 'Error'      , 'Message', '2025-03-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Ben'    , 'Error'      , 'Message', '2025-03-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Barry'  , 'Warning'    , 'Message', '2025-03-23');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Manny'  , 'Warning'    , 'Message', '2025-03-04');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Loco'   , 'Warning'    , 'Message', '2025-03-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Tex'    , 'Warning'    , 'Message', '2025-03-03');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Reeve'  , 'Warning'    , 'Message', '2025-04-04');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Hugh'   , 'Warning'    , 'Message', '2025-05-07');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Theresa', 'Error'      , 'Message', '2025-06-08');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Dave'   , 'Error'      , 'Message', '2025-07-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Louis'  , 'Error'      , 'Message', '2025-08-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('May'    , 'Error'      , 'Message', '2025-09-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Jannie' , 'Error'      , 'Message', '2025-01-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Carol'  , 'Error'      , 'Message', '2025-02-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Emily'  , 'Error'      , 'Message', '2025-03-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Emma'   , 'Error'      , 'Message', '2025-04-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Adrian' , 'Error'      , 'Message', '2025-02-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Adams'  , 'Error'      , 'Message', '2025-03-01');
+INSERT INTO Logs ([UserName], [Severity], [Message], [TimeStamp]) VALUES ('Nalty'  , 'Error'      , 'Message', '2025-02-01');

@@ -5,5 +5,5 @@ namespace Pagination.Repositories;
 
 public interface ILogRepository
 {
-    Task<PagedList<LogEntity>> GetLogsAsync(int pageNumber = 1, int pageSize = 10, string order = "desc");
+    Task<PagedList<LogEntity>> GetLogsAsync(int pageNumber = 1, int pageSize = 10, string order = "desc", string? severity = null);
 }

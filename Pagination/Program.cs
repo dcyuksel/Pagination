@@ -28,10 +28,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 
-app.MapGet("/logs/pageNumber/{pageNumber}/pageSize/{pageSize}/order/{order}",
-    async (ILogRepository logsRepository, int pageNumber = 1, int pageSize = 10, string order = "desc") =>
+app.MapGet("/logs",
+    async (ILogRepository logsRepository, int pageNumber = 1, int pageSize = 10, string order = "desc", string? severity = null) =>
 {
-    return await logsRepository.GetLogsAsync(pageNumber, pageSize, order);
+    return await logsRepository.GetLogsAsync(pageNumber, pageSize, order, severity);
 })
 .WithName("GetLogs")
 .WithOpenApi();

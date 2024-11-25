@@ -5,5 +5,5 @@ namespace Pagination;
 
 public class PaginationDbContext(DbContextOptions<PaginationDbContext> options) : DbContext(options)
 {
-    public virtual DbSet<LogEntity> Logs { get; set; }
+    public required virtual DbSet<LogEntity> Logs { get; set; }
 }
